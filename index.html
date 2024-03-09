@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculadora NEWS-2</title>
+</head>
+<body>
+    <form action="" method="get" class="formulario" name="news">
+        <h1>NEWS-2</h1><br>
+        <label for="select">Frecuencia respiratoria</label>
+        <select name="rpm" id="rpm" class="campo" required>
+            <option value="">--</option>
+            <option value="0">8-20 rpm</option>
+            <option value="1">21-24 rpm</option>
+            <option value="2">25-29 rpm</option>
+            <option value="3">>30 rpm</option>
+        </select><br>
+        <label for="">Saturación de oxígeno</label>
+        <select name="oxigeno" id="oxigeno" class="campo" required>
+            <option value="">--</option>
+            <option value="0">>96%</option>
+            <option value="1">94%-95%</option>
+            <option value="2"><94% </option>
+        </select><br>
+        <label for="">Presión arterial sistólica</label>
+        <select name="mmhg" id="mmhg" class="campo" required>
+            <option value="">--</option>
+            <option value="0">>111 mmHg</option>
+            <option value="1">101-110 mmHg</option>
+            <option value="2">91-100 mmHg</option>
+            <option value="3"><91 mmHg</option>
+        </select><br>
+        <label for="">Frecuencia cardíaca</label>
+        <select name="lpm" id="lpm" class="campo" required>
+            <option value="">--</option>
+            <option value="0">51-90 lpm</option>
+            <option value="1">91-110 lpm</option>
+            <option value="2">111-129 lpm</option>
+            <option value="3">>130 lpm</option>
+        </select><br>
+        <label for="">Temperatura corporal</label>
+        <select name="temp" id="temp" class="campo" required>
+            <option value="">--</option>
+            <option value="1"><36.0°</option>
+            <option value="0">36.1°-38.0°</option>
+            <option value="1">>38.1°</option>
+        </select><br>
+        <label for="">Nivel de consciencia</label>
+        <select name="cons" id="cons" class="campo" required>
+            <option value="">--</option>
+            <option value="0">15</option>
+            <option value="1">14</option>
+            <option value="2">13</option>
+            <option value="3"><12</option>
+        </select><br>
+        <button type="button" class="boton" onclick="calcular()">Calcular</button>
+    </form>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        score = 0;
+
+        rpm = parseFloat(document.getElementById('rpm').value);
+        oxigeno = parseFloat(document.getElementById('oxigeno').value);
+        mmhg = parseFloat(document.getElementById('mmhg').value);
+        lpm = parseFloat(document.getElementById('lpm').value);
+        temp = parseFloat(document.getElementById('temp').value);
+        cons = parseFloat(document.getElementById('cons').value);
+        
+        score = rpm + oxigeno + mmhg + lpm + temp + cons;
+
+        if (score<=4) {
+            alert("Score= " + score + "\nRiesgo Bajo");
+        }
+        if (score>4 && score<7) {
+                alert("Score= " + score + "\nRiesgo Moderado");
+        }
+        if (score >= 7) {
+            alert("Score= " + score + "\nRiesgo Alto");
+        }
+    }
+</script>
